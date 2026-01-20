@@ -1,0 +1,244 @@
+/* --- Fondo fijo con overlay seguro --- */
+/* Quita o comenta cualquier regla previa que seteaba background-image en body */
+body {
+  position: relative; /* no rompe nada y crea contexto para el resto */
+  min-height: 100vh;
+}
+
+/* Contenedor del fondo (imagen) */
+.fondo{
+  position: fixed;
+  inset: 0; /* top:0; right:0; bottom:0; left:0; */
+  background-image: url('shutterstock_2293642599.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  z-index: -2; /* detrás de todo el contenido */
+}
+
+/* Capa oscura encima del fondo para bajarle brillo sin afectar el contenido */
+.fondo::after{
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.75); /* ajusta 0.2 a 0.7 según quieras más/menos oscuro */
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Asegura que el nav se vea sobre el fondo */
+nav { z-index: 999; position: relative; }
+
+/* Si antes tenías body{background-image:...} coméntala o elimínala */
+
+
+
+nav{
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.logo{
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+
+/* Reset básico */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* NAV: colocarlo en la esquina superior derecha */
+nav {
+  position: fixed;       /* fijo en pantalla; usa absolute si prefieres relativo */
+  top: 14px;             /* separación desde arriba */
+  right: 14px;           /* separación desde la derecha (esquina) */
+  background-color: rgba(0,0,0,0.65); /* fondo semitransparente similar al tuyo */
+  border-radius: 8px;
+  padding: 8px 14px;     /* espacio interior del contenedor del menú */
+  z-index: 999;
+  /* elimina margin-left y padding-right que estaban rompiendo la posición */
+}
+
+/* UL: lista horizontal, sin posicionamiento con 'left' ni margenes porcentuales */
+ul {
+  color:hotpink;  /* tu color */
+  display: flex;         /* lista horizontal */
+  gap: 22px;             /* separación entre items (ajusta aquí) */
+  align-items: center;   /* centra verticalmente los items dentro del nav */
+  list-style-type: none;
+  margin: 0;             /* asegurar que no haya margen por defecto */
+  padding: 0;
+  white-space: nowrap;   /* evitar que las palabras se rompan en varias líneas */
+}
+
+/* LI: ya no usar porcentajes grandes para separar (eso pega las palabras) */
+ul li {
+  /* elimina margin-right: 20%; que crea espacios inconsistentes */
+  font-size: 20px;       /* ajusta tamaño a tu preferencia (antes 30px) */
+  line-height: 1;        /* mejor alineación vertical */
+}
+
+/* A: área clicable y estética */
+a {
+  text-decoration: none;
+  color: inherit;        /* hereda palevioletred del UL */
+  display: inline-block; /* hace que padding funcione bien */
+  padding: 6px 4px;      /* aumenta el área clicable sin romper el diseño */
+  transition: transform .12s, color .12s;
+}
+a:hover, a:focus {
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+/* Si necesitas que el menú quede más DELGADO en móvil */
+@media (max-width: 600px) {
+  nav {
+    top: 8px;
+    right: 8px;
+    padding: 6px 8px;
+  }
+  ul {
+    gap: 12px;
+  }
+  ul li { font-size: 16px; }
+}
+
+/* estilo del botón volver (opcional) */
+.boton-regresar{
+  display: inline-block;
+  padding: 8px 10px;
+  border-radius: 8px;
+  background: rgba(0,0,0,0.65);
+  color: palevioletred;
+  font-size: 25px;
+  font-weight: 700;
+  text-decoration: none;
+  position: absolute;
+  right: 90%;
+  top: 5%;
+  border: 1px solid rgba(255,255,255,0.05);
+  text-shadow: 0 0 5px #e058a7;
+}
+
+.boton-regresar:active{ transform: translateY(1px);
+}
+
+.boton-siguiente{
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: rgba(0,0,0,0.65); /* fondo negro semitransparente */
+    color: palevioletred;
+    font-size: 20px;
+    font-weight: bold;
+    border: none;
+    border-radius: 10px;
+    text-decoration: none;
+    position: absolute;
+    top: 30%;        /* controla altura como en tu imagen */
+    left: 90%;       /* centra horizontalmente */ 
+    text-shadow: 0 0 5px #e058a7;
+}
+
+
+
+h1{
+    color: white;
+    font-style:oblique;
+    font-size: 250%;
+    position: absolute;
+    left: 15%;
+    top: 20%;
+}
+
+.pfrase1{
+    color: white;
+    font-style: oblique;
+    font-size: 120%;
+    position:absolute;
+    left: 15%;
+    top: 27%;
+}
+
+.p1{color: white;
+    font-size: 130%;
+    font-style: oblique;
+    position: absolute;
+    left: 2%;
+    top: 36%;
+}
+
+.h1-2{
+    color: white;
+    font-style: oblique;
+    position: absolute;
+    left: 12%;
+    top: 52%;
+}
+
+.p2{
+    color: white;
+    font-size: 125%;
+    font-style: oblique;
+    position: absolute;
+    left: 9%;
+    top: 58%;
+}
+
+.h1-3{color: white;
+    font-style: oblique;
+    position: absolute;
+    left: 60%;
+    top: 36%;
+}
+
+.p-breve{
+    color: white;
+    font-size: 135%;
+    font-style: oblique;
+    position: absolute;
+    left: 76%;
+    top: 38%;
+}
+
+.p3{
+    color: white;
+    font-size: 125%;
+    font-style: oblique;
+    position: absolute;
+    left: 55%;
+    top: 42%;
+}
+
+.pfrase2{
+    color: white;
+    font-size: 150%;
+    font-style:oblique;
+    position:absolute;
+    left: 40%;
+    top: 93%;
+}
+
+.img1dereceta9{
+  width: 250px;
+  height: 160px;
+  border-radius: 20%;
+  object-fit: cover;
+  position: absolute;
+  left: 8%;
+  top: 78%;
+}
+
+.img2dereceta9{
+  width: 250px;
+  height: 160px;
+  border-radius: 20%;
+  object-fit: cover;
+  position: absolute;
+  left: 70%;
+  top: 70%;
+}
+

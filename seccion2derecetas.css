@@ -1,0 +1,146 @@
+body{
+    background-image: url('Fresas y Chocolate.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+/* contenido centrado para ejemplo */
+.seccion2deinicio-contenido{
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  background: rgba(0,0,0,0.2); /* opcional para legibilidad */
+}
+
+nav{
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.logo{
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+
+/* Reset básico */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* NAV: colocarlo en la esquina superior derecha */
+nav {
+  position: fixed;       /* fijo en pantalla; usa absolute si prefieres relativo */
+  top: 14px;             /* separación desde arriba */
+  right: 14px;           /* separación desde la derecha (esquina) */
+  background-color: rgba(0,0,0,0.65); /* fondo semitransparente similar al tuyo */
+  border-radius: 8px;
+  padding: 8px 14px;     /* espacio interior del contenedor del menú */
+  z-index: 999;
+  /* elimina margin-left y padding-right que estaban rompiendo la posición */
+}
+
+/* UL: lista horizontal, sin posicionamiento con 'left' ni margenes porcentuales */
+ul {
+  color:  palevioletred;  /* tu color */
+  display: flex;         /* lista horizontal */
+  gap: 22px;             /* separación entre items (ajusta aquí) */
+  align-items: center;   /* centra verticalmente los items dentro del nav */
+  list-style-type: none;
+  margin: 0;             /* asegurar que no haya margen por defecto */
+  padding: 0;
+  white-space: nowrap;   /* evitar que las palabras se rompan en varias líneas */
+}
+
+/* LI: ya no usar porcentajes grandes para separar (eso pega las palabras) */
+ul li {
+  /* elimina margin-right: 20%; que crea espacios inconsistentes */
+  font-size: 20px;       /* ajusta tamaño a tu preferencia (antes 30px) */
+  line-height: 1;        /* mejor alineación vertical */
+}
+
+/* A: área clicable y estética */
+a {
+  text-decoration: none;
+  color: inherit;        /* hereda palevioletred del UL */
+  display: inline-block; /* hace que padding funcione bien */
+  padding: 6px 4px;      /* aumenta el área clicable sin romper el diseño */
+  transition: transform .12s, color .12s;
+}
+a:hover, a:focus {
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+/* Si necesitas que el menú quede más DELGADO en móvil */
+@media (max-width: 600px) {
+  nav {
+    top: 8px;
+    right: 8px;
+    padding: 6px 8px;
+  }
+  ul {
+    gap: 12px;
+  }
+  ul li { font-size: 16px; }
+}
+
+
+
+/* estilo del botón volver (opcional) */
+.boton-regresar{
+  display: inline-block;
+  padding: 8px 10px;
+  border-radius: 8px;
+  background: rgba(0,0,0,0.65);
+  color: palevioletred;
+  font-size: 25px;
+  font-weight: 700;
+  text-decoration: none;
+  position: absolute;
+  right: 91%;
+  top: 20%;
+  border: 1px solid rgba(255,255,255,0.05);
+  text-shadow: 0 0 5px #e058a7;
+}
+
+.boton-regresar:active{ transform: translateY(1px);
+}
+
+h1{
+    color: white;
+    font-style: oblique;
+    position: absolute;
+    left: 70%;
+    top: 20%;
+}
+
+ol{
+    color: white;
+    font-size: 110%;
+    font-style: oblique;
+    position: absolute;
+    list-style: none;
+    left: 60%;
+    top: 35%;
+}
+
+.boton-siguiente{
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: rgba(0,0,0,0.65); /* fondo negro semitransparente */
+    color: palevioletred;
+    font-size: 25px;
+    font-weight: bold;
+    border: none;
+    border-radius: 10px;
+    text-decoration: none;
+    position: absolute;
+    top: 30%;        /* controla altura como en tu imagen */
+    left: 89%;       /* centra horizontalmente */ 
+    text-shadow: 0 0 5px #e058a7;
+}
+
